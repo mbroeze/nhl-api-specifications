@@ -1,5 +1,7 @@
 # NHL API
 
+This is a fork of the specification at https://github.com/erunion/sport-api-specifications/tree/master/nhl.
+
 This provides an [OpenAPI 3.0](https://swagger.io/docs/specification/about/) specification file for the NHL API.
 
 The bulk of this API has been discovered through [@dword4](https://github.com/dword4) and their [nhlapi](https://github.com/dword4/nhlapi) documentation.
@@ -27,6 +29,7 @@ The bulk of this API has been discovered through [@dword4](https://github.com/dw
 | `/people/{id}` | Get an NHL player. |
 | `/people/{id}/stats` | Get specific statistics for an NHL player. |
 | `/schedule` | Get the NHL game schedule. |
+| "/seasons" | Get the NHL seasons |
 | `/standings` | Get NHL division standings. |
 | `/standings/{type}` | Get NHL standings for a specific standing type. |
 | `/standingsTypes` | Get all available NHL standing types. |

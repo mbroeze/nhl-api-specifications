@@ -5,7 +5,7 @@ info:
   description: Documenting the publicly accessible portions of the NHL API.
   contact:
     name: NHL API documentation
-    url: https://github.com/erunion/sport-api-specifications
+    url: https://github.com/mbroeze/nhl-api-specifications/tree/justyaml
 tags:
   - name: conferences
   - name: divisions
@@ -13,6 +13,7 @@ tags:
   - name: games
   - name: players
   - name: schedule
+  - name: seasons
   - name: standings
   - name: stats
   - name: teams
@@ -376,6 +377,22 @@ paths:
                 $ref: "#/components/schemas/Schedule"
         404:
           $ref: "#/components/responses/Error"
+  /seasons:
+    get:
+      summary: Get all the NHL seasons.
+      description: Describes each season.
+      operationId: getSeasons
+      tags:
+        - seasons
+      responses:
+        200: 
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Seasons"
+        404:
+          $ref: "#/components/responses/Error"
   /standings:
     get:
       summary: Get NHL division standings.
@@ -616,6 +633,36 @@ components:
           schema:
             $ref: "#/components/schemas/Error"
   schemas:
+    Seasons: 
+      properties:
+        copyright:
+          type: string
+        seasons: 
+          type: array
+          items:
+            $ref: "#/components/schemas/Season"
+    Season: 
+      properties:
+        seasonId:
+          type: string
+        regularSeasonStartDate:
+          type: string
+        regularSeasonEndDate:
+          type: string
+        seasonEndDate:
+          type: string
+        numberOfGames:
+          type: string
+        tiesInUse:
+          type: string
+        olympicsParticipation:
+          type: string
+        conferencesInUse:
+          type: string
+        divisionsInUse:
+          type: string
+        wildCardInUse:
+          type: string
     Conference:
       properties:
         id:
