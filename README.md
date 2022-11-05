@@ -30,7 +30,7 @@ The bulk of this API has been discovered through [@dword4](https://github.com/dw
 | `/gameTypes` | Get the possible values of the game type enum. |
 | `/people/{id}` | Get an NHL player. |
 | `/people/{id}/stats` | Get specific statistics for an NHL player. |
-| `/playTypes` | This shows all the possible play types found within the liveData/plays portion of the game feed |
+| `/playTypes` | Get play type schemas |
 | `/schedule` | Get the NHL game schedule. |
 | `/seasons` | Get the NHL seasons |
 | `/standings` | Get NHL division standings. |
