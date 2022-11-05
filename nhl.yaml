@@ -14,6 +14,7 @@ tags:
   - name: gameStatus
   - name: gameTypes
   - name: players
+  - name: playTypes
   - name: schedule
   - name: seasons
   - name: standings
@@ -356,6 +357,21 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/PlayerStats"
+        404:
+          $ref: "#/components/responses/Error"
+  /playTypes:
+    get:
+      summary: This shows all the possible play types found within the liveData/plays portion of the game feed
+      operationId: getPlayTypes
+      tags:
+        - playTypes
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlayTypes"
         404:
           $ref: "#/components/responses/Error"
   /schedule:
@@ -2370,6 +2386,27 @@ components:
                           type: string
                           format: uri
                           example: "/api/v1/conferences/5"
+    PlayTypes:
+      properties:
+        name:
+          type: string
+        id: 
+          type: string
+        cmsKey:
+          type: string
+        playerTypes:
+          type: array
+          items:
+            type: object
+            properties:
+              playerType:
+                type: string
+        code:
+          type: string 
+        secondaryEventCodes:
+          type: array
+          items:
+            type: string
     Roster:
       properties:
         person:
