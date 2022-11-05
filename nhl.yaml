@@ -11,6 +11,8 @@ tags:
   - name: divisions
   - name: draft
   - name: games
+  - name: gameStatus
+  - name: gameTypes
   - name: players
   - name: schedule
   - name: seasons
@@ -229,6 +231,23 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Game"
+        404:
+          $ref: "#/components/responses/Error"
+  /gameStatus:
+    get:
+      summary: Returns a list of game status values
+      operationId: getGameStatus
+      tags:
+        - gameStatus
+      responses:
+        200: 
+          description: OK 
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: "#/components/schemas/GameStatus"
         404:
           $ref: "#/components/responses/Error"
   /gameTypes:
@@ -1963,6 +1982,18 @@ components:
             triCode:
               type: string
               example: "SJS"
+    GameStatus: 
+      properties:
+        code:
+          type: string
+        abstractGameState:
+          type: string
+        detailedState:
+          type: string
+        baseballCode:
+          type: string
+        startTimeTBD:
+          type: boolean
     GameType:
       properties:
         id:

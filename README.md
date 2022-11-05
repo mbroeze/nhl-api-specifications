@@ -26,6 +26,7 @@ The bulk of this API has been discovered through [@dword4](https://github.com/dw
 | `/game/{id}/content` | Get editorials, video replays and photo highlights for an NHL game. |
 | `/game/{id}/feed/live` | Get all available data for an NHL game. |
 | `/game/{id}/feed/live/diffPatch` | Get all available data for an NHL game after a specific time. |
+| `/gameStatus` | Returns a list of game status values |
 | `/gameTypes` | Get the possible values of the game type enum. |
 | `/people/{id}` | Get an NHL player. |
 | `/people/{id}/stats` | Get specific statistics for an NHL player. |
