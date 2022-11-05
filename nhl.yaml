@@ -231,6 +231,23 @@ paths:
                 $ref: "#/components/schemas/Game"
         404:
           $ref: "#/components/responses/Error"
+  /gameTypes:
+    get:
+      summary: Returns list of game types with description and post-season status
+      operationId: getGameTypes
+      tags:
+        - gameTypes
+      responses:
+        200: 
+          description: OK 
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: "#/components/schemas/GameType"
+        404:
+          $ref: "#/components/responses/Error"
   /game/{id}/feed/live/diffPatch:
     get:
       summary: Get all available data for an NHL game after a specific time.
@@ -633,36 +650,6 @@ components:
           schema:
             $ref: "#/components/schemas/Error"
   schemas:
-    Seasons: 
-      properties:
-        copyright:
-          type: string
-        seasons: 
-          type: array
-          items:
-            $ref: "#/components/schemas/Season"
-    Season: 
-      properties:
-        seasonId:
-          type: string
-        regularSeasonStartDate:
-          type: string
-        regularSeasonEndDate:
-          type: string
-        seasonEndDate:
-          type: string
-        numberOfGames:
-          type: string
-        tiesInUse:
-          type: string
-        olympicsParticipation:
-          type: string
-        conferencesInUse:
-          type: string
-        divisionsInUse:
-          type: string
-        wildCardInUse:
-          type: string
     Conference:
       properties:
         id:
@@ -1976,6 +1963,14 @@ components:
             triCode:
               type: string
               example: "SJS"
+    GameType:
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        postseason:
+          type: boolean
     Photo:
       properties:
         title:
@@ -2585,6 +2580,36 @@ components:
               type: string
               format: uri
               example: "/api/v1/game/2017020851/content"
+    Season: 
+      properties:
+        seasonId:
+          type: string
+        regularSeasonStartDate:
+          type: string
+        regularSeasonEndDate:
+          type: string
+        seasonEndDate:
+          type: string
+        numberOfGames:
+          type: string
+        tiesInUse:
+          type: string
+        olympicsParticipation:
+          type: string
+        conferencesInUse:
+          type: string
+        divisionsInUse:
+          type: string
+        wildCardInUse:
+          type: string
+    Seasons: 
+      properties:
+        copyright:
+          type: string
+        seasons: 
+          type: array
+          items:
+            $ref: "#/components/schemas/Season"
     Standings:
       properties:
         copyright:
