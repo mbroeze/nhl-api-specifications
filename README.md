@@ -22,6 +22,8 @@ The bulk of this API has been discovered through [@dword4](https://github.com/dw
 | `/draft/{year}` | Get round-by-round data for a specific year's NHL Entry Draft. |
 | `/draft/prospects` | Get all NHL Entry Draft prospects. |
 | `/draft/prospects/{id}` | Get an NHL Entry Draft prospect. |
+| `/franchises` | Get a list of franchises |
+| `/franchises/{id}` | Get a specific franchise |
 | `/game/{id}/boxscore` | Get the boxscore for an NHL game. |
 | `/game/{id}/content` | Get editorials, video replays and photo highlights for an NHL game. |
 | `/game/{id}/feed/live` | Get all available data for an NHL game. |

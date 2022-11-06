@@ -10,6 +10,7 @@ tags:
   - name: conferences
   - name: divisions
   - name: draft
+  - name: franchises
   - name: games
   - name: gameStatus
   - name: gameTypes
@@ -179,6 +180,44 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/DraftProspects"
+        404:
+          $ref: "#/components/responses/Error"
+  /franchises:
+    get:
+      summary: Returns a list of franchises
+      operationId: getFranchises
+      tags:
+        - franchises
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Franchises"
+        404:
+          $ref: "#/components/responses/Error"
+  /franchises/{id}:
+    get:
+      summary: Gets information on a specific franchise
+      operationId: getFranchise
+      tags:
+        - franchises
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The franchise ID
+          schema:
+            type: number
+            example: 2
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Franchises"
         404:
           $ref: "#/components/responses/Error"
   /game/{id}/boxscore:
@@ -937,6 +976,14 @@ components:
           type: string
           format: uri
           example: "/api/v1/franchises/29"
+    Franchises: 
+      properties:
+        copyright:
+          type: string
+        franchises:
+          type: array
+          items:
+            $ref: "#/components/schemas/Franchise"
     Game:
       properties:
         copyright:
